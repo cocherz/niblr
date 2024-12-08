@@ -44,7 +44,7 @@ const MenuItem = ({
       swiperItemRef.current.swiper.slideTo(scrollToItemIndex);
       setScrollToItemIndex(null)
     }
-  }, [scrollToItemIndex]);
+  }, [scrollToItemIndex, setScrollToItemIndex]);
 
 
 

@@ -343,6 +343,7 @@ button:focus {
   font-weight: 500;
   font-size: var(--font-larger);
   display: -webkit-box; /* Enables the use of -webkit-line-clamp */
+  line-clamp: 2;
   -webkit-line-clamp: 2; /* Limits the paragraph to 3 lines */
   -webkit-box-orient: vertical; /* Sets the box orientation to vertical */
   overflow: hidden; /* Hides the overflow text */
@@ -866,6 +867,7 @@ button:focus {
   font-size: var(--font-smaller);
   font-weight: 400;
   display: -webkit-box; /* Enables the use of -webkit-line-clamp */
+  line-clamp: 2;
   -webkit-line-clamp: 2; /* Limits the paragraph to 3 lines */
   -webkit-box-orient: vertical; /* Sets the box orientation to vertical */
   overflow: hidden; /* Hides the overflow text */
