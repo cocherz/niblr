@@ -1,0 +1,1194 @@
+:root {
+  --main-green: #15f54297;
+  --main-red: #f5491597;
+  --active-highlight: #162351;
+  --background: rgb(21, 20, 20);
+  --background-highlight: rgb(28, 28, 28);
+  --grey-font: #ebebeb;
+  --white-font: #ffffff;
+  --invisible: #ffffff1a;
+  --max-app-width: 900px;
+}
+
+/*--- HTML SETTINGS ---*/
+
+html,
+body {
+  margin: auto;
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-drag: none; /* Prevents image dragging on Safari */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  color: var(--white-font);
+  overscroll-behavior-y: none;
+  /* overflow-y: scroll; */
+  /* max-height: 100vh; */
+  max-width: var(--max-app-width);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+h2 {
+  font-weight: 500;
+  line-height: 40px;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  color: var(--grey-font);
+}
+
+strong {
+  font-weight: 900;
+  color: var(--white-font);
+}
+
+span {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;  /* Removes the underline */
+  color: inherit;         /* Inherits the color from the parent element */
+  cursor: pointer;        /* Ensures the cursor is a pointer (hand icon) */
+}
+
+a:visited {
+  color: inherit;         /* Ensures the visited link has the same color */
+}
+
+a:hover, a:focus {
+  text-decoration: none;  /* Prevents underlining on hover or focus */
+  color: inherit;         /* Maintains the inherited color */
+}
+
+a:active {
+  text-decoration: none;  /* Ensures no underline on click */
+  color: inherit;         /* Keeps the color the same */
+}
+
+
+.categorie-title {
+  margin: 0;
+  z-index: 1000;
+  max-width: 300px;
+  word-wrap: break-word;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent; /* Remove the highlight on mobile devices */
+}
+button:active,
+button:focus {
+  outline: none; /* Ensure no outline on focus or active state */
+  box-shadow: none; /* Ensure no box shadow on active state */
+}
+
+/* --------- Styling Tools ---------- */
+
+.lineBreak {
+  width: 100%;
+  height: 1px;
+  background: white;
+}
+.spacer {
+  width: 100%;
+  height: 1px;
+  background: var(--background-highlight);
+}
+
+.zero-z {
+  z-index: 0;
+}
+
+.touch-btn-padding {
+  padding: 10px 20px; /* Increase padding to make the button easier to press */
+  margin: -10px -20px;
+}
+
+.top-padding-25px {
+  padding-top: 25px;
+}
+
+.top-padding-70 {
+  padding-top: 100px;
+}
+
+.svg_image {
+  filter: brightness(0) invert(1);
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
+  -webkit-tap-highlight-color: transparent; /* Disables tap highlight color */
+
+  /* pointer-events: none; Consider removing if you want the images to be clickable */
+}
+
+.non-selectable-video {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard syntax */
+  -webkit-user-drag: none; /* Safari */
+  pointer-events: none;
+}
+
+.noselectImg {
+  pointer-events: none;
+}
+
+/* --------- Niblr Homepage ---------- */
+
+.navigation-bar {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  max-width: var(--max-app-width);
+  width: 100%;
+  z-index: 1;
+}
+
+.navigationButtonSpace {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigationButton {
+  background: transparent;
+  border: none;
+}
+
+.list-view-section-title {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 40px;
+  word-wrap: break-word;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  
+}
+
+
+
+/* --------- Item View ---------- */
+
+.item-image {
+  display: flex;
+  align-items: center; /* Center vertically */
+  height: 100%;
+  width: 100vw; /* Use the full screen width */
+}
+
+.image {
+  height: 100%;
+  width: 100vw;
+  max-width: var(--max-app-width);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  object-fit: cover;
+}
+
+.video {
+  /* height: 100%; */
+  width: 100vw;
+  max-width: var(--max-app-width);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  object-fit: cover;
+  z-index: 0;
+  position: fixed;
+  opacity: 1;
+}
+
+
+
+
+
+.space-between {
+  justify-content: space-between;
+}
+
+.menu-item-slider {
+  z-index: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* --------- List View ---------- */
+
+.list-view {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column ;
+  
+}
+
+.list-view-component-container {
+  touch-action: pan-y;
+}
+
+
+.list-view-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-description-keys {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.lv-header-svg-image {
+  filter: brightness(0) invert(1);
+  height: 30px;
+}
+
+.lv-img-container {
+  width: 33%;
+  min-width: 100px;
+  max-width: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 0 0 5px;
+  background: var(--background-highlight);
+}
+
+.lv-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px 0 0 5px;
+}
+
+.lv-item-copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.lv-item-title-copy {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.lv-item-title {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.option {
+  display: flex;
+  gap: 5px;
+  height: 150px;
+}
+
+.lv-more-cta {
+  position: relative;
+  text-align: right;
+  display: flex;
+}
+
+.option-container {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  border-radius: 5px;
+  width: 100%;
+}
+
+.lv-line-break {
+  width: 100%;
+  height: 1px;
+  background: white;
+  opacity: 0.5;
+  margin: 5px 0;
+  border-radius: 2rem;
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.lv-pill {
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  background: linear-gradient(to right, rgba(var(--main-green) 0.5), rgba(0, 0, 0, 0));
+  gap: 5px;
+}
+
+.small-cross {
+  height: 15px;
+  margin-top: 10px;
+}
+
+.lv-item-botton-line-info {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.icons-flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lv-item-copy p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lv-logo {
+  max-height: 75px;
+}
+
+.lv-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+}
+
+/* --------- Graphics  ---------- */
+
+.vegan {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.footer-copy-container {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* INDICATORS CSS */
+
+.active {
+  transition: all 0.3s ease-in-out;
+  width: 8px;
+  height: 16px;
+  background-color: var(--active-highlight);
+}
+
+.inactive {
+  transition: all 0.3s ease-in-out;
+  width: 8px;
+  height: 8px;
+  background-color: #4832a8;
+  opacity: 0.8;
+}
+
+/* --------- Item View Details  ---------- */
+
+.itemDescriptionContainer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+  padding: 40px 20px 80px 20px;
+  z-index: 500;
+  max-width: var(--max-app-width);
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  gap: 10px;
+}
+
+.item-desc-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.pills-container {
+  display: flex;
+  font: 10px;
+  font-weight: 600;
+}
+
+.pill {
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px var(--main-green);
+  display: inline-block;
+  margin-right: 20px;
+  line-height: 14px;
+}
+
+.recommended-pill {
+  background: var(--main-green);
+  box-shadow: 0px 0px 5px var(--main-green);
+}
+.out-of-stock-pill {
+  background: var(--main-red);
+  box-shadow: 0px 0px 5px var(--main-red);
+}
+
+/* --------- MENU BOTTOM SLIDER NAV BAR STYLING ---------- */
+
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: var(--max-app-width);
+  z-index: 3;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  padding-bottom: 10px;
+  overflow: hidden; /* Disables scrolling */
+  touch-action: none;
+}
+
+.button-base {
+  flex: 1;
+  background: transparent;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: center;
+  outline: none;
+  border: 2px solid transparent;
+  transition: 0.5s all ease-out;
+}
+
+.underline {
+  transition: opacity 0.3s ease-in-out; /* Adjust the duration and timing function as needed */
+  opacity: 0; /* Start with the underline hidden */
+  width: 100%;
+  height: 2px;
+  background-color: var(--grey-font);
+  border-radius: 1px;
+  transition: 0.5s all ease;
+}
+
+.active-underline {
+  opacity: 1; /* Full opacity when active */
+}
+
+.svg-image {
+  filter: brightness(0) invert(1);
+  padding: 10px;
+  transition: 0.3s all ease-out;
+}
+
+.active-svg-image {
+  filter: brightness(0) invert(1);
+  padding: 10px;
+  transition: 0.2s all ease-out;
+}
+
+/* --------- SLIDER STYLING ---------- */
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 300ms,
+    visibility 300ms;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 300ms,
+    visibility 300ms;
+}
+
+.closeButton {
+  cursor: pointer;
+  z-index: 100;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* margin: 10px 0px; */
+}
+
+.removeButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--white-font);
+  padding: 10px;
+}
+
+.marginBottom {
+  margin: 10px 0;
+}
+
+.removeButton {
+  line-height: 0px;
+  text-align: right;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: var(--white-font);
+  padding: 5px;
+}
+
+.flex {
+  display: flex;
+}
+
+/* -------- LOADING SCREEN --------- */
+
+.loading-screen {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background);
+  display: flex;
+  overflow-y: scroll;
+  touch-action: none;
+}
+
+.niblr-logo {
+  width: 50px;
+}
+
+.brandLogo {
+  width: 100%;
+  max-width: 300px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.createBy {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 0; 
+}
+
+.fadeIn {
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --------- Spinner Styling ---------- */
+
+.large-spinner {
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 0.6s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards; /* Adjust time as needed */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.empty-basket-copy {
+  margin: auto;
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-400px); /* Optional: adds a slight slide effect */
+  }
+}
+
+.animate-out {
+  animation: fadeOut 0.5s forwards; /* Adjust the duration as needed */
+}
+
+
+
+/* Basket overlay background */
+.basket-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Shadow effect */
+  z-index: 1000; /* Ensure it appears above other elements */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Basket container with sliding animation */
+.basket-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Optional: Set max width for larger screens */
+  height: calc(100% - 40px); /* Leave 40px space from the top */
+  background: var(--background);
+  border-radius: 16px 16px 0 0; /* Rounded corners on top */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Box shadow */
+  transform: translateY(100%); /* Start off-screen */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+/* Slide-up animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-down (out) animation */
+@keyframes slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-in .basket-container {
+  animation: slide-up 0.4s ease forwards;
+}
+
+.animate-out .basket-container {
+  animation: slide-down 0.4s ease forwards;
+}
+
+/* Add padding for top content */
+.top-padding-70 {
+  height: 70px;
+}
+
+
+
+/* --------- Sticky list View header ---------- */
+
+.price-text {
+  font-size: 18px;
+}
+
+.lv-item-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.min-100-vh {
+  height: 100vh;
+}
+
+.heart-button {
+  background: transparent;
+  border: none;
+  outline: none; /* Remove the default outline */
+  box-shadow: none;
+}
+.heart-button:focus,
+.heart-button:active {
+  outline: none; /* Remove the default outline */
+  box-shadow: none; /* Optional: Remove any existing box shadow */
+  /* Add any other styling you want to remove */
+}
+
+
+.videoFadeIn {
+  animation: fadeInAnimation 0.3s forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --------- Grid View Item Descriptions ---------- */
+
+.itemTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.price-heart-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemDescription > p {
+  font-size: 14px;
+  font-weight: 400;
+}
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --------- basket  ---------- */
+
+.fade-container {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+.fadeIn {
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards; /* Adjust time as needed */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.footer-section {
+  margin-top: auto;
+}
+
+.spacer-300 {
+  height: 50px;
+}
+
+.non-scrollable {
+  overflow: hidden; /* Disables scrolling */
+  overflow-x: hidden;
+}
+
+.basket-page-container {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 105vh; /* Ensure it takes the full height of the viewport */
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  overflow-y: auto; /* Allow content to scroll if it overflows */
+}
+
+.list-view {
+  padding-bottom: 20px; /* Optional padding to create space above the footer */
+}
+
+
+.items-in-basket-view {
+  flex-grow: 1;
+}
+
+.footer-section {
+  margin-top: auto; /* Ensure the footer section stays at the bottom of the content */
+}
+
+.created-by {
+  padding: 10px;
+  background-color: #f8f8f8; /* Add background color or styling as needed */
+  text-align: center;
+}
+
+/* --------- Niblr Homepage ---------- */
+
+.center-text {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+/* --------- SLIDER STYLING ---------- */
+
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  margin: 10px 20px;
+  border-radius: 5px;
+  left: 0;
+  width: 16px;
+  -webkit-tap-highlight-color: transparent; /* Remove the highlight on mobile devices */
+}
+.swiper-pagination.swiper-pagination-hidden {
+  opacity: 0;
+}
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+  display: none !important;
+}
+/* Common Styles */
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 8px);
+  top: var(--swiper-pagination-top, auto);
+  /* width: 100%; */
+}
+/* Bullets */
+.swiper-pagination-bullets-dynamic {
+  overflow: hidden;
+  font-size: 0;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+  transform: scale(0.33);
+  position: relative;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
+  transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+  transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+  transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+  transform: scale(0.33);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+  transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+  transform: scale(0.33);
+}
+.swiper-pagination-bullet {
+  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 10px));
+  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px));
+  display: inline-block;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.6);
+  transition: 0.3s all ease-in-out;
+  box-shadow: 0 0 10px 5px rgba(69, 69, 69, 0.2);
+}
+button.swiper-pagination-bullet {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  cursor: pointer;
+}
+.swiper-pagination-bullet:only-child {
+  display: none !important;
+}
+.swiper-pagination-bullet-active {
+  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 10px));
+  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 40px));
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  transition: 0.3s all ease-in-out;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  /* opacity: var(--swiper-pagination-bullet-inactive-opacity, 1); */
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.496);
+}
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  right: var(--swiper-pagination-right, 8px);
+  top: 50%;
+  transform: translate3d(0px, -50%, 0);
+}
+.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: var(--swiper-pagination-bullet-vertical-gap, 10px) 0;
+  display: block;
+}
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+}
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+  display: inline-block;
+  transition:
+    200ms transform,
+    200ms top;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+  transition:
+    200ms transform,
+    200ms left;
+}
+.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+  transition:
+    200ms transform,
+    200ms right;
+}
+/* Fraction */
+.swiper-pagination-fraction {
+  color: var(--swiper-pagination-fraction-color, inherit);
+}
+/* Progress */
+.swiper-pagination-progressbar {
+  background: var(--swiper-pagination-progressbar-bg-color, rgba(0, 0, 0, 0.25));
+  position: absolute;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: var(--swiper-pagination-color, var(--swiper-theme-color));
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transform-origin: left top;
+}
+.swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  transform-origin: right top;
+}
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite {
+  width: 100%;
+  height: var(--swiper-pagination-progressbar-size, 4px);
+  left: 0;
+  top: 0;
+}
+.swiper-vertical > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-vertical,
+.swiper-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite {
+  width: var(--swiper-pagination-progressbar-size, 4px);
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.swiper-pagination-lock {
+  display: none;
+}
+
+/* basket */
+
+.items-in-basket-view{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+
+.player-wrapper {
+  /* display: flex; */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background-color: #4832a8; */
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  overflow: hidden; /* Prevent any content from overflowing the wrapper */
+  z-index: 0; /* Ensure the player is behind other content */
+}
+
+
+
+.video {
+  /* height: 100%; */
+  width: 100vw;
+  max-width: var(--max-app-width);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  object-fit: cover;
+  z-index: 0;
+  position: fixed;
+  opacity: 1;
+}
+
+.margin-20-t{
+  margin-top: 20px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+
+  .apex-item-select:focus, .apex-item-text:focus, .apex-item-textarea:focus {
+  
+          font-size: 16px;
+  
+      }
+  
+      .apex-item-select, .apex-item-text, .apex-item-textarea {
+  
+          font-size: 16px;
+  
+      }
+  
+  }
+
+  .list-view {
+    touch-action: manipulation;
+    overscroll-behavior: none;
+  }
+  .list-view {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ and Edge */
+    user-select: none; /* Standard syntax */
+  }
+
+
+

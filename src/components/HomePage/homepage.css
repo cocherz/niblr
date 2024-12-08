@@ -1,0 +1,430 @@
+:root {
+    --main-green: #15f54297;
+    --main-red: #f5491597;
+    --active-highlight: #162351;
+    --background: rgb(21, 20, 20);
+    --background-highlight: rgb(28, 28, 28);
+    --grey-font: #ebebeb;
+    --white: #ffffff;
+    --highlight: #ffeedd;
+    --homepage-background: #0c0052;
+    --shadow-background: #ffffff02;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+.header-content {
+    padding: 20px;
+    margin: 20px;
+    border-bottom: 1px solid #e0e0e029;
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-us-button {
+    background-color: #ffffff00;
+    color: var(--white);
+    border: 1px solid var(--highlight);
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-us-button:hover {
+    color: #1b1b1b;
+    background-color: var(--highlight);
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+.hero-title {
+    font-size: 50px;
+    color: var(--white);
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 25px;
+    color: var(--grey-font);
+    font-weight: 400;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-video-container {
+    perspective: 1000px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.hero-video {
+    border-radius: 15px;
+    background-color: #ffffff0e;
+    transform: rotateY(-15deg) rotateX(10deg); /* Adjust angles for desired 3D effect */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 1);
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    width: 100%;
+    gap: 100px;
+    padding: 100px 20px;
+}
+
+.subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    /* width: 1200px; */
+    gap: 50px;
+    padding: 100px 50px;
+}
+
+.copy {
+    color: var(--grey-font);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.subheading {
+    font-size: 25px;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin: 30px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-section {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.faq-item {
+    padding: 20px 0;
+    border-bottom: var(--grey-font) 1px solid;
+}
+.faq-container {
+    border-top: var(--grey-font) 1px solid;
+}
+
+.hpCTA {
+    width: 1005;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.faq-question {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-top: 20px;
+}
+
+.faq-answer.faq-closed {
+    max-height: 0;
+    display: none;
+}
+
+.faq-answer.open {
+    max-height: 200px; /* Adjust as necessary based on your content size */
+    display: block;
+    padding: 20px 0;
+}
+
+.faq-icon {
+    min-width: 20px;
+    max-height: 20px;
+    margin: 20px;
+}
+
+.faq-icon.open {
+    transform: rotate(135deg);
+}
+.faq-icon {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out; /* Animate the transform property */
+}
+
+.usp-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.usp-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    width: 430px;
+    min-height: 200px;
+    /* background-color: #ffeedd1a; */
+    background-color: gradient(135deg, transparent 20%, #149279);
+    /* background: linear-gradient(to top left, rgba(0, 0, 255, 0.055), rgba(247, 186, 186, 0.072)); */
+    /* border-radius: 5px; */
+    padding: 0 20px 20px 0;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+    text-align: left;
+    align-items: left;
+    /* border-bottom: var(--grey-font) 1px solid; */
+}
+
+.usp-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffeedd1a;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
+.usp-icon {
+    height: 35px;
+    width: 35px;
+}
+@media (max-width: 900px) {
+    .main-title {
+        align-items: center;
+        text-align: center;
+    }
+    .header-btn {
+        display: none;
+    }
+    .usp-section {
+        flex-direction: column;
+        gap: 20px;
+        /* width: 100%; */
+    }
+    .usp-item {
+        width: 100%;
+        align-items: center;
+    }
+    .content {
+        gap: 75px;
+        padding: 40px 20px;
+    }
+    .card {
+        max-width: 900px;
+    }
+    .hero-title {
+        font-size: 25px;
+    }
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    .copy {
+        font-size: 16px;
+    }
+}
+
+/* Contact Us Form */
+
+.contact-us-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.name-and-email {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+input,
+p {
+    width: 100%;
+}
+
+.name-input,
+.email-input,
+.msg-input {
+    /* Set to 100% width to fill the container on smaller screens */
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--grey-font);
+    font-size: large;
+    resize: none; /* Disables resizing for the message input */
+}
+
+.msg-input {
+    height: 200px;
+}
+
+.input {
+    margin-top: 10px;
+}
+
+.submit-button {
+    background-color: var(--grey-font);
+    color: var(--background-highlight);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: medium;
+    font-weight: 600;
+}
+.submit-button:hover {
+    background-color: var(--highlight);
+}
+
+/* promo-content */
+
+.promo-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--shadow-background);
+    border-radius: 5px;
+}
+
+.pc-container {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+.pc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: var(--shadow-background);
+    align-items: center;
+}
+
+.promo-content-img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.demo-section {
+    width: 100%;
+}
+
+.demo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff02;
+    border-radius: 5px;
+}
+
+.demo-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #ffffff02;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.demo-btn {
+    margin-top: auto;
+    text-decoration: none;
+}
