@@ -3,7 +3,6 @@ import config from "../../../Config";
 import mixpanel from "mixpanel-browser";
 import { ReactComponent as Basket } from "./Basket.svg";
 import { ReactComponent as ListViewICON } from "../../img/ListView.svg";
-import { ReactComponent as Close } from "../../img/Close.svg";
 import MenuViewTitle from "./menuViewTitle";
 
 export const Navbar = ({ menu, onClose, itemView, activeIndex, onBasketClick, menuSwapView, setScrollToListViewIndex, pageView }) => {
