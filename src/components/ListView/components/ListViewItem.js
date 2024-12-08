@@ -3,6 +3,13 @@ import { ReactComponent as Cheveron } from "./Cheveron.svg";
 import { ReactComponent as Vegan } from "../../img/Vegan.svg";
 
 const ListVeiwItem = ({ item, showPriceAndChevron }) => {
+
+
+  
+
+
+
+
   return (
     <div className="lv-item-content-container">
       <div className="lv-item-copy">
@@ -10,7 +17,15 @@ const ListVeiwItem = ({ item, showPriceAndChevron }) => {
           <p className="lv-item-title">{item.title[0].text}</p>
           {item.price && showPriceAndChevron && (
           <div className="price-text">
-            <i>£{item.price}</i>
+            {item.price.toString().includes('.') ? (
+        <>
+          <p className="price-integer">{item.price.toString().split('.')[0]}</p>
+          .
+          <p className="price-decimal">{item.price.toString().split('.')[1]}</p>
+        </>
+      ) : (
+        <p className="price-integer">{item.price}</p>
+      )}
           </div>
         )}
         </div>

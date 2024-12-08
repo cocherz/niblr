@@ -8,6 +8,9 @@
   --white-font: #ffffff;
   --invisible: #ffffff1a;
   --max-app-width: 900px;
+  --font-normal: 16px;
+  --font-larger: 18px;
+  --font-smaller: 14px;
 }
 
 /*--- HTML SETTINGS ---*/
@@ -35,7 +38,7 @@ h2 {
 }
 
 p {
-  font-size: 14px;
+  font-size: var(--font-smaller);
   font-weight: 300;
   margin: 0;
   color: var(--grey-font);
@@ -47,7 +50,7 @@ strong {
 }
 
 span {
-  font-size: 14px;
+  font-size: var(--font-smaller);
 }
 
 a {
@@ -227,10 +230,6 @@ button:focus {
   opacity: 1;
 }
 
-
-
-
-
 .space-between {
   justify-content: space-between;
 }
@@ -267,6 +266,21 @@ button:focus {
   align-items: center;
 }
 
+.price-integer {
+  font-size: 1.2rem; /* Larger font size */
+  font-weight : 500
+}
+
+.price-decimal {
+  font-size: 1rem; /* Smaller font size */
+  font-weight: normal;
+}
+
+
+
+
+
+
 .lv-header-svg-image {
   filter: brightness(0) invert(1);
   height: 30px;
@@ -300,12 +314,18 @@ button:focus {
 .lv-item-title-copy {
   display: flex;
   justify-content: space-between;
-  align-items: top;
+  gap : 5px;
+
 }
 
 .lv-item-title {
   font-weight: 500;
-  font-size: 17px;
+  font-size: var(--font-larger);
+  display: -webkit-box; /* Enables the use of -webkit-line-clamp */
+  -webkit-line-clamp: 2; /* Limits the paragraph to 3 lines */
+  -webkit-box-orient: vertical; /* Sets the box orientation to vertical */
+  overflow: hidden; /* Hides the overflow text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) to the end of the truncated text */
 }
 
 .option {
@@ -364,12 +384,6 @@ button:focus {
   align-items: center;
 }
 
-.lv-item-copy p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 .lv-logo {
   max-height: 75px;
@@ -564,7 +578,7 @@ button:focus {
   text-align: right;
   background: transparent;
   border: none;
-  font-size: 14px;
+  font-size: var(--font-smaller);
   color: var(--white-font);
   padding: 5px;
 }
@@ -765,14 +779,17 @@ button:focus {
 /* --------- Sticky list View header ---------- */
 
 .price-text {
-  font-size: 18px;
+  font-size: var(--font-larger);
+  display: flex;
+  align-items: baseline;
+
 }
 
 .lv-item-content-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
 }
 
 .min-100-vh {
@@ -822,9 +839,16 @@ button:focus {
 }
 
 .itemDescription > p {
-  font-size: 14px;
+  font-size: var(--font-smaller);
   font-weight: 400;
+  display: -webkit-box; /* Enables the use of -webkit-line-clamp */
+  -webkit-line-clamp: 2; /* Limits the paragraph to 3 lines */
+  -webkit-box-orient: vertical; /* Sets the box orientation to vertical */
+  overflow: hidden; /* Hides the overflow text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) to the end of the truncated text */
 }
+
+
 .itemDescription {
   display: flex;
   flex-direction: column;
@@ -873,14 +897,17 @@ button:focus {
 }
 
 .fade-out {
-  animation: fadeOut 0.5s forwards; /* Adjust time as needed */
+  animation: fadeOut 0.5s ease-in-out forwards; /* Adjust time as needed */
 }
 
 @keyframes fadeOut {
   from {
     opacity: 1;
   }
-  to {
+  90% {
+    opacity: 0;
+  }
+  100% {
     opacity: 0;
   }
 }
@@ -1168,13 +1195,13 @@ button.swiper-pagination-bullet {
 
   .apex-item-select:focus, .apex-item-text:focus, .apex-item-textarea:focus {
   
-          font-size: 16px;
+          font-size: var(--font-normal);
   
       }
   
       .apex-item-select, .apex-item-text, .apex-item-textarea {
   
-          font-size: 16px;
+          font-size: var(--font-normal);
   
       }
   

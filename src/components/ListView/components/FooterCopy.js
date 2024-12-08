@@ -2,7 +2,7 @@ import React from "react";
 
 const FooterCopy = () => {
   return (
-    <div className="footer-copy-container itemDescription noselect">
+    <div className="footer-copy-container noselect">
       <h5> (V) VEGETARIAN • (VG) VEGAN • (VGA) VEGAN OPTION AVAILABLE • (GF) GLUTEN-FREE </h5>
       <p>
         If you are concerned about any food allergies or dietary requirements please speak to a member of the team who would be delighted to assist. Adults require approximately 2000 kcal a day. All

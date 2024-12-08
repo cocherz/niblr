@@ -2,7 +2,7 @@ import React from 'react';
 
 const BasketFooter = () => {
     return (
-        <div className="footer-copy-container noselect itemDescription">
+        <div className="footer-copy-container noselect">
                 <h4> (V) VEGETARIAN • (VG) VEGAN • (VGA) VEGAN OPTION AVAILABLE • (GF) GLUTEN-FREE </h4>
                 <p>
                   If you are concerned about any food allergies or dietary requirements please speak to a member of the team who would be delighted to assist. Adults require approximately 2000 kcal a
