@@ -1,5 +1,5 @@
 import MenuItem from "./MenuItemView";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BottomNavBar from "./NavBars/BottomNavBar";
 
@@ -20,6 +20,14 @@ export const Menu = ({ likedItems, menu, activeIndex, onChange, toggleItemInBask
     direction: "horizontal",
     cssMode: false,
   };
+
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(activeIndex);
+    }
+  }, [activeIndex]);
+
+
 
   const updateActiveIndex = (newIndex) => {
     swiperRef.current.swiper.slideTo(newIndex);

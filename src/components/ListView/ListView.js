@@ -6,13 +6,15 @@ import ListViewItem from "./components/ListViewItem";
 import FooterCopy from "./components/FooterCopy";
 import LineBreak from "./components/LineBreak";
 import CreatedBy from "../LoadingScreen/Components/CreatedBy";
+import { ReactComponent as Close } from "../img/Close.svg";
+
 
 const ListView = ({
   menu,
   onClose,
   onChange,
   setScrollToItemIndex,
-  scrollToListViewIndex = 3,
+  scrollToListViewIndex,
 }) => {
   const categoryRefs = useRef([]);
   const listViewRef = useRef(null);
@@ -72,6 +74,12 @@ const ListView = ({
 
   return (
     <section className="list-view-component-container">
+      <div className="list-view-header-backdrop" > </div>
+      <button className="list-view-close navigationButton navigationButtonSpace" onClick={onClose}>
+            <Close />
+      </button>
+
+
       <div className="list-view noselect" ref={listViewRef}>
         {menu.map((category, catIndex) => (
           <div

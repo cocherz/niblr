@@ -13,7 +13,9 @@ const MenuApp = ({ currentConfig }) => {
   // State Management
   const [menuViewState, setMenuViewState] = useState(true);
   const [basketVisible, setBasketVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+
+
   const [isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrollToListViewIndex, setScrollToListViewIndex] = useState(0);
@@ -24,17 +26,16 @@ const MenuApp = ({ currentConfig }) => {
   const notFound = menuState.state === "failed";
 
   // Handlers
-  const showBasket = () => {
-    setBasketVisible(true);
-    setIsAnimating(true);
+  const toggleBasket = () => {
+    if (!basketVisible) {
+      setIsBackdropVisible(true); // Show backdrop
+    } else {
+      setIsBackdropVisible(false); // Hide backdrop
+    }
+    setBasketVisible(!basketVisible);
   };
 
-  const hideBasket = () => {
-    setIsAnimating(false); // Trigger the animation out
-    setTimeout(() => {
-      setBasketVisible(false); // Remove from DOM after animation
-    }, 400); // Match the animation duration in CSS
-  };
+ 
 
   const toggleMenuView = () => setMenuViewState((prev) => !prev);
 
@@ -61,7 +62,7 @@ const MenuApp = ({ currentConfig }) => {
         <TopNavbar
           menu={menu.data.body}
           activeIndex={activeIndex}
-          onBasketClick={showBasket}
+          onBasketClick={toggleBasket}
           menuSwapView={toggleMenuView}
           setScrollToListViewIndex={setScrollToListViewIndex}
           onClose={() => setMenuViewState(false)}
@@ -77,6 +78,7 @@ const MenuApp = ({ currentConfig }) => {
               onChange={setActiveIndex}
               setScrollToItemIndex={setScrollToItemIndex}
               scrollToListViewIndex={scrollToListViewIndex}
+              activeIndex={activeIndex}
             />
           ) : (
             <Menu
@@ -91,20 +93,16 @@ const MenuApp = ({ currentConfig }) => {
           )}
         </section>
 
-        {/* Render Basket as Overlay */}
-        <div
-          className={`basket-overlay ${basketVisible ? "visible" : "hidden"}`}
-          style={{ position: "absolute", top: 0, zIndex: 10 }}
-        >
+        {basketVisible && (
           <Basket
             items={basketItems}
-            onClose={hideBasket}
             onRemove={removeFromBasket}
-            onChange={setActiveIndex}
+            setActiveIndex={setActiveIndex}
             setScrollToItemIndex={setScrollToItemIndex}
-            isAnimating={isAnimating}
+            closeBasket={toggleBasket}
+            isBackdropVisible={isBackdropVisible} // Pass down the visibility
           />
-        </div>
+        )}
        
       </>
     );

@@ -15,7 +15,7 @@ const BasketItem = ({  item, onRemove, goToIndex, index }) => {
   };
 
   return (
-    <div key={index} className={`option-container  ${isAnimatingOut ? "animate-out" : ""}`}>
+    <div key={index} className={`option-container  ${isAnimatingOut ? "remove-from-basket-animation" : ""}`}>
       <div className="flex space-between">        
         <div className="option" onClick={() => goToIndex(item.menuIndex, item.itemIndex)}>
           <ListViewImage src={item.content_image.url} />

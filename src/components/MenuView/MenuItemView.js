@@ -1,4 +1,4 @@
-import React, { useState, useRef} from "react";
+import React, { useState, useRef, useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import ItemDescription from "./ItemDescription";
@@ -12,13 +12,15 @@ const MenuItem = ({
   current_menu,
   scrollToItemIndex,
   index,
-  isActive
+  isActive,
+  setScrollToItemIndex
 }) => {
   const availableItems = current_menu.items.filter((item) => item.is_item_available);
   const screenHeight = useScreenHeight();
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const menuIndex = index;
   const playerRefs = useRef([]);
+  const swiperItemRef = useRef(null);
 
   const handleSlideChange = (swiper) => {
     setCurrentItemIndex(swiper.activeIndex);
@@ -36,6 +38,16 @@ const MenuItem = ({
     speed: 400,
   };
 
+
+  useEffect(() => {
+    if (swiperItemRef.current && swiperItemRef.current.swiper && scrollToItemIndex != null) {
+      swiperItemRef.current.swiper.slideTo(scrollToItemIndex);
+      setScrollToItemIndex(null)
+    }
+  }, [scrollToItemIndex]);
+
+
+
   const verticalSwiperStyle = {
     height: `${screenHeight}px`,
     width: "100vw",
@@ -43,7 +55,7 @@ const MenuItem = ({
   };
 
   return (
-    <Swiper className="menu-item-slider" direction={"vertical"} {...swiperSettings} style={verticalSwiperStyle}>
+    <Swiper  ref={swiperItemRef} className="menu-item-slider" direction={"vertical"} {...swiperSettings} style={verticalSwiperStyle}>
       {availableItems.map((item, index) => (
         <SwiperSlide key={index}>
           {item.item_video.url ? (
