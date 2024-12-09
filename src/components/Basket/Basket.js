@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import BasketItem from "./BasketItem";
 import FooterCopy from "../ListView/components/FooterCopy";
 import LineBreak from "../ListView/components/LineBreak";
@@ -15,36 +15,91 @@ const Basket = ({
   onRemove
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [startY, setStartY] = useState(null);
+  const [dragDistance, setDragDistance] = useState(window.innerHeight); // Start off-screen
+  const [isDragging, setIsDragging] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const basketRef = useRef(null);
+  const swipeThreshold = 150;
 
   useEffect(() => {
-    setIsAnimating(true); // Start the animation when the component is mounted
+    // On mount, trigger the basket to slide in
+    requestAnimationFrame(() => {
+      setIsAnimating(true);
+      setDragDistance(0);
+    });
   }, []);
 
   const handleClose = () => {
-    setIsAnimating(false); // Trigger the slide-out animation
+    setIsClosing(true);
+    setIsAnimating(false);
+    setDragDistance(window.innerHeight); // Move downward off-screen
     setTimeout(() => {
-      closeBasket(); // Call the parent function to unmount the component after animation
-    }, 400); // Match the transition duration
+      closeBasket();
+    }, 400);
   };
 
- const goToIndex = (menuIndex, itemIndex) => {
-    console.log(menuIndex, itemIndex);
-    
+  const goToIndex = (menuIndex, itemIndex) => {
     setActiveIndex(menuIndex);
     setScrollToItemIndex(itemIndex);
-    handleClose()
-  }
+    handleClose();
+  };
+  const DRAG_START_ZONE = 45; // px from the top
+
+  const handleTouchStart = (e) => {
+    if (isClosing) return;
+    
+    const touchY = e.touches[0].pageY;
+    const basketRect = basketRef.current.getBoundingClientRect();
+    
+    // Only start dragging if user's initial touch is near the top handle area
+    if (touchY - basketRect.top <= DRAG_START_ZONE) {
+      setStartY(touchY);
+      setDragDistance(0);
+      setIsDragging(true);
+    }
+  };
+  const handleTouchMove = (e) => {
+    if (startY === null || isClosing) return;
+    const currentY = e.touches[0].pageY;
+    let diffY = currentY - startY;
+    
+    // Apply resistance after 50px, making it harder to pull further
+    if (diffY > 50) {
+      diffY = 50 + (diffY - 50) * 0.5; // half speed after 50px
+    }
+    
+    setDragDistance(diffY > 0 ? diffY : 0);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (isClosing) return;
+    if (dragDistance > swipeThreshold) {
+      handleClose();
+    } else {
+      // Snap back
+      setDragDistance(0);
+    }
+  };
+
+  const basketStyle = {
+    transform: `translateY(${dragDistance}px)`,
+    transition: isDragging ? 'none' : 'transform 0.4s ease'
+  };
 
   return (
     <>
       <div
         className={`backdrop ${isBackdropVisible ? "visible" : "hidden"}`}
-        onClick={handleClose}
+        onClick={!isClosing ? handleClose : undefined}
       ></div>
-      <section
-        className={`basket-container ${
-          isAnimating ? "slide-in" : "slide-out"
-        }`}
+      <section ref={basketRef}
+        className={`basket-container ${isAnimating ? "slide-in" : "slide-out"}`}
+        style={basketStyle}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <BasketNav onClose={handleClose} />
         <div className="list-view">
@@ -54,6 +109,7 @@ const Basket = ({
                 {items.map((item, index) => (
                   <div key={index} className="menu-section">
                     <BasketItem
+                      key={item.title[0].text}
                       item={item}
                       onRemove={onRemove}
                       goToIndex={goToIndex}

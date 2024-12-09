@@ -363,7 +363,7 @@ button:focus {
 }
 
 .option-container {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background: linear-gradient(to right, rgb(11, 11, 11), var(--background));
   border-radius: 5px;
   width: 100%;
 }
@@ -731,7 +731,7 @@ button:focus {
   background: white;
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(100%); /* Start off-screen */
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 100;
 }
 
@@ -777,7 +777,6 @@ button:focus {
   transform: translateY(100%); /* Start hidden off-screen */
   transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
   z-index: 110;
-  overflow: hidden;
   overflow-y: auto; /* Enable vertical scrolling */
 }
 
