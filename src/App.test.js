@@ -27,9 +27,9 @@ export const TestApp = () => {
   //console.log(config.client.thelongbar.accessToken);
   //console.log(config.client.thelongbar.currentRepoName);
   return (
-    <PrismicProvider client={client(config.client.thelongbar.currentRepoName, config.client.thelongbar.accessToken)}>
+    <PrismicProvider client={client(config.client.sushi.currentRepoName, config.client.sushi.accessToken)}>
       <section className="menu-app-container">
-        <MenuApp subdomain={'thelongbar'} currentConfig={config.client.thelongbar} />
+        <MenuApp subdomain={'sushi'} currentConfig={config.client.sushi} />
       </section>
     </PrismicProvider>
   );

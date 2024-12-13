@@ -29,9 +29,9 @@ const config = {
         sushi : {
             name: "Sushi",
             subdomain : "sushi",
-            prismicDocument : "sushi",
-            currentRepoName: 'maneu',
-            accessToken: "MC5aZzFPNHhBQUFDUUF5Rmti.Unha77-977-977-9PGFn77-977-977-9FTh_fO-_vUdENkRT77-9Ygfvv73vv73vv70ZCe-_vWI",
+            prismicDocument : "menu-section",
+            currentRepoName: 'sushimenu',
+            accessToken: "MC5aMXQ0cWhFQUFDWUEzNG9B.JCQTcu-_vXkU77-9QSLvv71qUO-_vXsW77-977-977-9Xe-_vU_vv71m77-9G2IU77-977-9d2U",
         },
         cocktailbar : {
             name: "Cocktail Bar",
