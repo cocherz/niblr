@@ -5,7 +5,7 @@ import { ReactComponent as NiblrLogo } from "../../img/Niblr.svg";
 const CreatedBy = () => {
 
   return (
-    <a href='https://www.niblr.co.uk' className='noselect non-scrollable'>
+    <a href='https://www.niblr.co.uk' className='noselect non-scrollable '>
     <div className="createBy">
       <span>Powered by</span>
       <NiblrLogo className='niblr-logo' />

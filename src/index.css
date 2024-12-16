@@ -431,8 +431,11 @@ button:focus {
   justify-content: center;
   text-justify: center;
   text-align: center;
-  padding-bottom: 10px;
+  padding: 10px 0;
   font-size: var(--font-smaller);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* INDICATORS CSS */
@@ -649,8 +652,18 @@ button:focus {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 40px 0; 
+  padding: 10px 0 30px 0 ; 
 }
+
+.basket-content {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-self: space-between;
+  justify-content: space-between;
+}
+
+
 
 .fadeIn {
   animation: fadeIn 4s ease-in-out forwards;
@@ -703,16 +716,15 @@ button:focus {
   text-align: center;
 }
 
+
 @keyframes removeFromBasket {
   from {
+    transform: translateX(0);
     opacity: 1;
   }
-  80% {
-    opacity: 0;
-  }
   to {
+    transform: translateX(-100%);
     opacity: 0;
-    transform: translateX(-400px); /* Optional: adds a slight slide effect */
   }
 }
 
@@ -766,18 +778,22 @@ button:focus {
 
 
 .basket-container {
+  width: 100%; /* Adjust width as needed */
+  max-width: var(--max-app-width);
+  height: 90%; /* Adjust height as needed */
+  max-height: var(--max-app-height, 90%); /* Optional for dynamic height handling */
+
   position: fixed;
-  border-radius: 20px 20px 0 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 90%; /* Adjust as needed */
+  bottom: 0; /* Align vertically to the centre */
+  overflow-y:scroll  ; /* Enable vertical scrolling */
+
+
+  transform: translate(-50%, -50%); /* Centre the element using translate */
+  border-radius: 20px 20px 0 0px; /* Apply the border radius consistently */
   background: var(--background);
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(100%); /* Start hidden off-screen */
-  transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
+  box-shadow: 0 0px 15px rgba(179, 179, 179, 0.1); /* Adjust the shadow as needed */
   z-index: 110;
-  overflow-y: auto; /* Enable vertical scrolling */
+  transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
 }
 
 .basket-container.slide-in {
@@ -788,10 +804,20 @@ button:focus {
   transform: translateY(100%); /* Slide out of view */
 }
 
+.basket-item-container {
+  transition: height 0.4s ease-in-out, transform 0.3s ease; /* Smooth transitions */
+  overflow: hidden; /* Prevent overflow during height collapse */
+}
 
 
+.basket-item-container.slide-out {
+  overflow-y: auto; /* Enable vertical scrolling */
 
+}
 
+.absolute{ 
+  position: absolute;
+}
 
 /* Add padding for top content */
 .top-padding-70 {
@@ -843,6 +869,38 @@ button:focus {
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+
+.scale-slide-up .items-in-basket-view {
+  animation: scaleSlideUp 0.6s ease forwards;
+}
+
+@keyframes scaleSlideUp {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* Ensure the BasketEmpty component slides in smoothly */
+.items-in-basket-view + .basket-empty {
+  animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -1166,7 +1224,7 @@ button.swiper-pagination-bullet {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   justify-content: space-between;
 }
 

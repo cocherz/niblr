@@ -10,7 +10,7 @@ const BasketItem = ({ item, onRemove, goToIndex, index }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [height, setHeight] = useState("auto"); // State to control height during removal
   const itemRef = useRef(null); // Reference to access DOM height
-  const swipeThreshold = 150; // Threshold to trigger swipe-to-remove
+  const swipeThreshold = 200; // Threshold to trigger swipe-to-remove
 
   /**
    * Handles the removal animation with height collapse.

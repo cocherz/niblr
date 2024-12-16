@@ -102,7 +102,8 @@ const Basket = ({
         onTouchEnd={handleTouchEnd}
       >
         <BasketNav onClose={handleClose} />
-        <div className="list-view">
+        <div className="basket-content">
+        <div className="list-view basket-items-container">
           {items.length > 0 ? (
             <div className="items-in-basket-view">
               <div className="list-view-section">
@@ -128,6 +129,7 @@ const Basket = ({
           )}
         </div>
         <CreatedBy />
+        </div>
       </section>
     </>
   );

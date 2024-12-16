@@ -105,9 +105,10 @@ const ListView = ({
             <LineBreak />
           </div>
         ))}
-        <div className="spacer-300" />
         <FooterCopy className="noselect" />
         <CreatedBy />
+        <div className="spacer-300" />
+        <div className="spacer-300" />
       </div>
     </section>
   );
